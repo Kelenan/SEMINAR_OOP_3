@@ -46,11 +46,26 @@ public class IterablePharmacy implements Iterable<Component>, Comparable<Iterabl
             }
         };
     }
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) return true;
+        if (obj == null || getClass() != obj.getClass()) return false;
+        IterablePharmacy IterablePharmacy = (pharmacy.IterablePharmacy) obj;
+
+
+        return getPharmacyPower() == IterablePharmacy.getPharmacyPower();
+    }
+    @Override
+    public int hashCode() {
+
+        return getPharmacyPower();
+    }
 
     @Override
     public int compareTo(IterablePharmacy o) {
         return Integer.compare(this.getPharmacyPower(), o.getPharmacyPower());
     }
+
 
    /* @Override
     public Iterator<Component> iterator() {
